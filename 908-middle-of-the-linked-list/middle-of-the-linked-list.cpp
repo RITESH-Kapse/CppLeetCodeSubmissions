@@ -25,16 +25,33 @@ public:
 
     ListNode* middleNode(ListNode* head) {
 
-        int n=getLength(head);
-        int position = n/2 + 1;
+        //this is TORTOISE Algorithm - fast ptr agar 2 steps chala tab slow 1 step chalega
 
-        int currPos = 1;
-        ListNode *temp = head;
+        ListNode *slow=head;
+        ListNode *fast=head;
 
-        while(currPos != position){
-            currPos++;
-            temp = temp->next;
+        while(fast != NULL){
+            fast = fast -> next;
+            if(fast != NULL){
+                fast = fast->next;
+                //that is fast 2 step chala hai
+                slow = slow->next;
+            }    
+
         }
-        return temp;        
+        return slow; //jaha slow hai wahi middle hai
+
+        //*********we can solve with below approach also --> LL*****************
+        // int n=getLength(head);
+        // int position = n/2 + 1;
+
+        // int currPos = 1;
+        // ListNode *temp = head;
+
+        // while(currPos != position){
+        //     currPos++;
+        //     temp = temp->next;
+        // }
+        // return temp;        
     }
 };

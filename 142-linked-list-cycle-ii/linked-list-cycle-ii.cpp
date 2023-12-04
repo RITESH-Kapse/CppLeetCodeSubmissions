@@ -39,7 +39,7 @@ public:
             fast = fast->next;
         }
 
-        //return starting point
+        //return starting point of loop
         return slow;
         
     }
